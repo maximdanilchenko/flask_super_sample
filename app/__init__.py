@@ -1,13 +1,15 @@
 from flask import Flask
 from api.users import users
-from api.items import items
-from api.carts import carts
+from api.groups import groups
+from api.posts import posts
+from models import db
 
 
 def create_app(config):
     app = Flask(__name__)
     app.config.from_object(config)
     app.register_blueprint(users, url_prefix='/api/users')
-    app.register_blueprint(items, url_prefix='/api/items')
-    app.register_blueprint(carts, url_prefix='/api/carts')
+    app.register_blueprint(groups, url_prefix='/api/groups')
+    app.register_blueprint(posts, url_prefix='/api/posts')
+    db.init_app(app)
 
