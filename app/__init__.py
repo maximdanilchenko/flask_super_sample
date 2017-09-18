@@ -1,8 +1,8 @@
 from flask import Flask
-from api.users import users
-from api.groups import groups
-from api.posts import posts
-from models import db
+from .api.users import users
+from .api.groups import groups
+from .api.posts import posts
+from .models import db
 
 
 def create_app(config):
